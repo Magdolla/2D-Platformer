@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,22 +10,22 @@ public class PlayerMotor : MonoBehaviour
     public float dashTime = 0.5f;   
     private bool canJump = true;
     private Rigidbody2D rigidbody2D;
+    private Animator animator;
     public float speed = 10;
     public float maxSpeed = 10;
     public float jumpForce = 10;
     public float stoppingForce = 5;
-
     private int jumpCount = 0;
     private int maxJumpCount = 2;
-
     private bool isDashing = false;
-
-  
+    private float initXScale;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        initXScale = transform.localScale.x;
     }
     // Update is called once per frame
     private void FixedUpdate()
@@ -32,6 +33,23 @@ public class PlayerMotor : MonoBehaviour
         PlayerMovement();
         HandleMaxSpeed();
         PlayerStopping();
+        if(direction.x != 0)
+        {
+            animator.SetBool("IsMoving", true);
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false);
+        }
+
+        if(direction.x > 0)
+        {
+            transform.localScale = new Vector3(initXScale, transform.localScale.y, transform.localScale.z);
+        }
+        else if(direction.x < 0)
+        {
+            transform.localScale = new Vector3(-initXScale, transform.localScale.y, transform.localScale.z);
+        }
 
     }
 

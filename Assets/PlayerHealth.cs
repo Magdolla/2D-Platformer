@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
   
@@ -47,6 +48,11 @@ public class PlayerHealth : MonoBehaviour
         }
        
         Debug.Log(Health);
+
+        if(Health <= 0)
+        {
+            SceneManager.LoadScene("Gamefail");
+        }
     }
 
     IEnumerator InvincilibityTimer(float time, Action callback)
