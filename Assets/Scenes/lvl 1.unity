@@ -10437,7 +10437,6 @@ GameObject:
   - component: {fileID: 1671122765}
   - component: {fileID: 1671122764}
   - component: {fileID: 1671122766}
-  - component: {fileID: 1671122767}
   m_Layer: 5
   m_Name: HealthPanel
   m_TagString: Untagged
@@ -10517,19 +10516,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthText: {fileID: 281300650}
   playerHealth: {fileID: 745611123}
---- !u!114 &1671122767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1671122762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df25510f22a29064aacedc7de2fa237b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerHealth: 100
 --- !u!1001 &1677136448
 PrefabInstance:
   m_ObjectHideFlags: 0
